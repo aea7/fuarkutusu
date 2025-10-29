@@ -1,0 +1,1 @@
+- you don't need to do yarn dev, it's always running on 3000

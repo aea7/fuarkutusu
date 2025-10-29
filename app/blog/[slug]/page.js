@@ -9,7 +9,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const post = await getPostBySlug(params.slug)
+  const resolvedParams = await params
+  const post = await getPostBySlug(resolvedParams.slug)
   return {
     title: `${post.title} - SetTravel UK Blog`,
     description: post.excerpt,
@@ -17,7 +18,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPost({ params }) {
-  const post = await getPostBySlug(params.slug)
+  const resolvedParams = await params
+  const post = await getPostBySlug(resolvedParams.slug)
 
   return (
     <div>

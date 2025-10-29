@@ -4,31 +4,72 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Discover the UK Like Never Before
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-100 max-w-3xl mx-auto">
-              Your trusted partner for unforgettable travel experiences across the United Kingdom
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Start Your Journey
-              </Link>
-              <Link
-                href="/about"
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors"
-              >
-                Learn More
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <div className="animate-fade-in-up">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                The Most Amazing Travel Experience
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-primary-100">
+                Discover the UK like never before with personalized itineraries, expert guides, and unforgettable memories.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:from-cyan-500 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-center"
+                >
+                  <span className="relative z-10">Start Your Journey · Free</span>
+                  <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                </Link>
+                <Link
+                  href="/about"
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105 text-center"
+                >
+                  Discover More
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column - Image Collage */}
+            <div className="relative h-[500px] hidden lg:block">
+              {/* Large center image */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-72 bg-white rounded-2xl shadow-2xl overflow-hidden animate-float-delayed z-10">
+                <img
+                  src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop"
+                  alt="London"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Top right image */}
+              <div className="absolute top-0 right-0 w-48 h-40 bg-white rounded-2xl shadow-xl overflow-hidden animate-float z-20">
+                <img
+                  src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=300&h=250&fit=crop"
+                  alt="Travel"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Bottom left image */}
+              <div className="absolute bottom-0 left-0 w-56 h-48 bg-white rounded-2xl shadow-xl overflow-hidden animate-float-slow z-20">
+                <img
+                  src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=300&h=250&fit=crop"
+                  alt="Scotland"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Bottom right decorative element */}
+              <div className="absolute bottom-12 right-12 w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full animate-pulse-slow opacity-80 z-0"></div>
             </div>
           </div>
         </div>
+
+        {/* Decorative gradient orbs */}
+        <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slower"></div>
       </section>
 
       {/* Services Section */}
