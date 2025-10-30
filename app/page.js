@@ -4,36 +4,40 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden relative min-h-[600px] lg:min-h-[700px] flex items-center">
+        {/* Decorative gradient orbs - More vibrant on mobile */}
+        <div className="absolute top-10 right-5 lg:top-20 lg:right-10 w-64 h-64 lg:w-72 lg:h-72 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full filter blur-3xl opacity-30 lg:opacity-20 animate-pulse-slow"></div>
+        <div className="absolute bottom-10 left-5 lg:bottom-20 lg:left-10 w-72 h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full filter blur-3xl opacity-30 lg:opacity-20 animate-pulse-slower"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className="animate-fade-in-up">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <div className="animate-fade-in-up text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
                 The Most Amazing Travel Experience
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-primary-100">
+              <p className="text-lg sm:text-xl md:text-2xl mb-8 text-primary-50 drop-shadow-md">
                 Discover the UK like never before with personalized itineraries, expert guides, and unforgettable memories.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <Link
                   href="/contact"
-                  className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:from-cyan-500 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-center"
+                  className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:from-cyan-500 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-center shadow-lg"
                 >
                   <span className="relative z-10">Start Your Journey · Free</span>
                   <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Link>
                 <Link
                   href="/about"
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105 text-center"
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105 text-center backdrop-blur-sm"
                 >
                   Discover More
                 </Link>
               </div>
             </div>
 
-            {/* Right Column - Image Collage */}
-            <div className="relative h-[500px] hidden lg:block">
+            {/* Right Column - Image Collage (Desktop) */}
+            <div className="relative h-[400px] md:h-[500px] hidden lg:block">
               {/* Large center image */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-72 bg-white rounded-2xl shadow-2xl overflow-hidden animate-float-delayed z-10">
                 <img
@@ -65,11 +69,18 @@ export default function Home() {
               <div className="absolute bottom-12 right-12 w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full animate-pulse-slow opacity-80 z-0"></div>
             </div>
           </div>
-        </div>
 
-        {/* Decorative gradient orbs */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slower"></div>
+          {/* Mobile Featured Image - Outside the grid, completely separate */}
+          <div className="lg:hidden mt-8 px-4">
+            <div className="relative w-full max-w-sm mx-auto h-56 bg-white rounded-2xl shadow-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop"
+                alt="London"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Services Section */}
