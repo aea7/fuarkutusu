@@ -62,54 +62,81 @@ yarn dev
 
 The admin panel is available at `/admin` and allows you to edit blog posts through a user-friendly interface.
 
-### For Production (Vercel + GitHub)
+### For Production (Vercel + GitHub OAuth)
 
-1. **Deploy to Vercel:**
+1. **Create a GitHub OAuth App:**
+   - Go to https://github.com/settings/developers
+   - Click "New OAuth App"
+   - Fill in:
+     - **Application name:** `SetTravel UK CMS` (or any name)
+     - **Homepage URL:** `https://your-domain.vercel.app`
+     - **Authorization callback URL:** `https://your-domain.vercel.app/api/auth/callback`
+   - Click "Register application"
+   - Copy the **Client ID**
+   - Click "Generate a new client secret" and copy it
+
+2. **Deploy to Vercel:**
    - Connect your GitHub repository to Vercel
    - Vercel will automatically detect Next.js and deploy
 
-2. **Enable Netlify Identity (works with Vercel too):**
-   - Go to [Netlify](https://app.netlify.com) and create a new site (or link existing)
-   - Go to Site settings → Identity → Enable Identity
-   - Under Registration preferences, set to "Invite only"
-   - Enable Git Gateway under Services
+3. **Add Environment Variables in Vercel:**
+   - Go to your project settings in Vercel
+   - Navigate to "Environment Variables"
+   - Add the following:
+     - `NEXT_PUBLIC_SITE_URL`: Your production URL (e.g., `https://your-domain.vercel.app`)
+     - `OAUTH_CLIENT_ID`: Your GitHub OAuth Client ID
+     - `OAUTH_CLIENT_SECRET`: Your GitHub OAuth Client Secret
 
-3. **Add Identity Widget to your site:**
+4. **Update CMS Config:**
+   - Edit `public/admin/config.yml`
+   - Update `base_url` to your production URL:
+     ```yaml
+     base_url: https://your-domain.vercel.app
+     ```
 
-   Add this script to `app/layout.js` before the closing `</body>` tag:
-   ```html
-   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-   ```
+5. **Redeploy:**
+   - Push your changes to GitHub
+   - Vercel will auto-deploy
 
-4. **Invite yourself:**
-   - Go to Identity tab in Netlify
-   - Click "Invite users"
-   - Enter your email
-   - Check your email and set password
-
-5. **Access the admin panel:**
+6. **Access the admin panel:**
    - Go to `your-site.com/admin`
-   - Login with your credentials
+   - Click "Login with GitHub"
+   - Authorize the app
    - Start editing blog posts!
 
 ### For Local Development
 
-1. Edit `public/admin/config.yml` and uncomment:
-   ```yaml
-   local_backend: true
-   ```
-
-2. Install and run the Decap CMS proxy server:
+1. **Copy environment variables:**
    ```bash
-   npx decap-server
+   cp .env.example .env.local
    ```
 
-3. In another terminal, run your dev server:
-   ```bash
-   yarn dev
+2. **Edit `.env.local`** with your OAuth credentials:
+   ```
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000
+   OAUTH_CLIENT_ID=your_github_oauth_client_id
+   OAUTH_CLIENT_SECRET=your_github_oauth_client_secret
    ```
 
-4. Access the admin at `http://localhost:3000/admin`
+3. **Option A: Use OAuth locally** (same as production)
+   - Update your GitHub OAuth App callback URL to also include:
+     `http://localhost:3000/api/auth/callback`
+   - Run `yarn dev`
+   - Visit `http://localhost:3000/admin`
+
+4. **Option B: Use local backend** (no auth needed):
+   - Edit `public/admin/config.yml`:
+     ```yaml
+     # Comment out these lines:
+     # base_url: https://your-domain.vercel.app
+     # auth_endpoint: /api/auth
+
+     # Uncomment this:
+     local_backend: true
+     ```
+   - Run the CMS proxy: `yarn cms-proxy`
+   - In another terminal: `yarn dev`
+   - Visit `http://localhost:3000/admin`
 
 ## Editing Content
 
