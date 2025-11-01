@@ -3,11 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="/admin/cms/config.yml" type="text/yaml" rel="cms-config-url">
   <title>Content Manager</title>
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    (async function() {
+      try {
+        // Fetch the GitHub token from our API
+        const response = await fetch('/api/cms-token');
+        const data = await response.json();
+
+        if (!data.token) {
+          throw new Error('No token available');
+        }
+
+        // Initialize CMS with manual authentication
+        CMS.init({
+          config: {
+            backend: {
+              name: 'github',
+              repo: 'aea7/settravel_uk',
+              branch: 'main'
+            },
+            media_folder: 'public/images/uploads',
+            public_folder: '/images/uploads',
+            collections: [{
+              name: 'blog',
+              label: 'Blog Posts',
+              folder: 'content/blog',
+              create: true,
+              slug: '{{slug}}',
+              fields: [
+                { label: 'Title', name: 'title', widget: 'string' },
+                { label: 'Excerpt', name: 'excerpt', widget: 'text' },
+                { label: 'Publish Date', name: 'date', widget: 'datetime', date_format: 'YYYY-MM-DD', time_format: false },
+                { label: 'Author', name: 'author', widget: 'string', default: 'SetTravel UK Team' },
+                { label: 'Featured Image', name: 'image', widget: 'image', required: false },
+                { label: 'Body', name: 'body', widget: 'markdown' }
+              ]
+            }]
+          }
+        });
+
+        // Inject the token to bypass OAuth
+        localStorage.setItem('netlify-cms-user', JSON.stringify({
+          name: 'Admin User',
+          login: 'admin',
+          token: data.token,
+          avatar_url: '',
+          url: ''
+        }));
+
+        // Reload to apply authentication
+        if (!sessionStorage.getItem('cms_reloaded')) {
+          sessionStorage.setItem('cms_reloaded', 'true');
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error('CMS initialization error:', error);
+        document.body.innerHTML = '<div style="padding: 2rem; text-align: center;">Error loading CMS. Please refresh the page.</div>';
+      }
+    })();
+  </script>
 </body>
 </html>
