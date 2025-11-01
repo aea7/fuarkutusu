@@ -3,43 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="config.yml" type="text/yaml" rel="cms-config-url">
   <title>Content Manager</title>
 </head>
 <body>
-  <div id="loading" style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: system-ui;">
-    Loading CMS...
-  </div>
+  <div id="nc-root"></div>
   <script>
-    // Fetch token and load CMS only after token is ready
+    // Intercept fetch before loading CMS
     (async function() {
       try {
+        // Get the GitHub token
         const response = await fetch('/api/cms-token');
-        const data = await response.json();
+        const { token } = await response.json();
 
-        if (data.token) {
-          // Store the token so CMS can use it
-          localStorage.setItem('netlify-cms-user', JSON.stringify({
-            name: 'Admin User',
-            login: 'admin',
-            token: data.token,
-            avatar_url: '',
-            url: ''
-          }));
-
-          // Hide loading message
-          document.getElementById('loading').style.display = 'none';
-
-          // Now load the CMS script
-          const script = document.createElement('script');
-          script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
-          document.body.appendChild(script);
-        } else {
-          throw new Error('No token received');
+        if (!token) {
+          document.body.innerHTML = '<div style="padding:2rem;text-align:center">Error: GitHub token not configured</div>';
+          return;
         }
+
+        // Monkey-patch fetch BEFORE loading CMS
+        const originalFetch = window.fetch;
+        window.fetch = function(url, options = {}) {
+          // Inject token for all GitHub API requests
+          if (typeof url === 'string' && url.includes('api.github.com')) {
+            options = options || {};
+            options.headers = options.headers || {};
+            if (options.headers instanceof Headers) {
+              options.headers.set('Authorization', `token ${token}`);
+            } else {
+              options.headers['Authorization'] = `token ${token}`;
+            }
+          }
+          return originalFetch(url, options);
+        };
+
+        // Now load and initialize the CMS
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+        script.onload = function() {
+          CMS.init({
+            config: {
+              backend: {
+                name: 'github',
+                repo: 'aea7/settravel_uk',
+                branch: 'main'
+              },
+              media_folder: 'public/images/uploads',
+              public_folder: '/images/uploads',
+              collections: [{
+                name: 'blog',
+                label: 'Blog Posts',
+                folder: 'content/blog',
+                create: true,
+                slug: '{{slug}}',
+                fields: [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Excerpt', name: 'excerpt', widget: 'text' },
+                  { label: 'Publish Date', name: 'date', widget: 'datetime', date_format: 'YYYY-MM-DD', time_format: false },
+                  { label: 'Author', name: 'author', widget: 'string', default: 'SetTravel UK Team' },
+                  { label: 'Featured Image', name: 'image', widget: 'image', required: false },
+                  { label: 'Body', name: 'body', widget: 'markdown' }
+                ]
+              }]
+            }
+          });
+        };
+        document.head.appendChild(script);
       } catch (error) {
-        console.error('Failed to initialize CMS:', error);
-        document.getElementById('loading').innerHTML = 'Error loading CMS. Please refresh the page.';
+        console.error('CMS initialization error:', error);
+        document.body.innerHTML = '<div style="padding:2rem;text-align:center">Error loading CMS: ' + error.message + '</div>';
       }
     })();
   </script>
