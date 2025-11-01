@@ -7,8 +7,11 @@
   <title>Content Manager</title>
 </head>
 <body>
+  <div id="loading" style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: system-ui;">
+    Loading CMS...
+  </div>
   <script>
-    // Inject GitHub token before CMS loads
+    // Fetch token and load CMS only after token is ready
     (async function() {
       try {
         const response = await fetch('/api/cms-token');
@@ -23,12 +26,22 @@
             avatar_url: '',
             url: ''
           }));
+
+          // Hide loading message
+          document.getElementById('loading').style.display = 'none';
+
+          // Now load the CMS script
+          const script = document.createElement('script');
+          script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+          document.body.appendChild(script);
+        } else {
+          throw new Error('No token received');
         }
       } catch (error) {
-        console.error('Failed to fetch token:', error);
+        console.error('Failed to initialize CMS:', error);
+        document.getElementById('loading').innerHTML = 'Error loading CMS. Please refresh the page.';
       }
     })();
   </script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
