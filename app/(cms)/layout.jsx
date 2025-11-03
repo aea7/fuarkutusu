@@ -7,10 +7,8 @@ export const metadata = {
 
 export default function CMSLayout({ children }) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <body id="outstatic" className="m-0 p-0" style={{ margin: 0, padding: 0 }}>
-        {children}
-      </body>
-    </html>
+    <div id="outstatic" className="min-h-screen">
+      {children}
+    </div>
   )
 }
