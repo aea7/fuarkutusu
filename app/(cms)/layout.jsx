@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function CMSLayout({ children }) {
   return (
-    <div id="outstatic" className="min-h-screen">
+    <div id="outstatic">
       {children}
     </div>
   )
