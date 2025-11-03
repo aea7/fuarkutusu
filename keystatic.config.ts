@@ -11,10 +11,6 @@ export default config({
   cloud: {
     project: 'settravel/settravel-uk',
   },
-  images: {
-    directory: 'public/images/blog',
-    publicPath: '/images/blog/',
-  },
   collections: {
     posts: collection({
       label: 'Posts',
@@ -46,7 +42,10 @@ export default config({
           formatting: true,
           dividers: true,
           links: true,
-          images: true,
+          images: {
+            directory: 'public/images/blog',
+            publicPath: '/images/blog/',
+          },
         }),
       },
     }),
