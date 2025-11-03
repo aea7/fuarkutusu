@@ -1,8 +1,6 @@
+'use client'
 import { Outstatic } from 'outstatic'
-import { OstClient } from 'outstatic/client'
 
-export default async function Page(props) {
-  const params = await props.params
-  const ostData = await Outstatic()
-  return <OstClient ostData={ostData} params={params} />
+export default function Page() {
+  return <Outstatic />
 }
