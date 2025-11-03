@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { getPostBySlug, getAllPostSlugs } from '@/lib/blog'
+import { DocumentRenderer } from '@keystatic/core/renderer'
 
 export async function generateStaticParams() {
-  const posts = getAllPostSlugs()
+  const posts = await getAllPostSlugs()
   return posts.map((post) => ({
     slug: post.slug,
   }))
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }) {
   const post = await getPostBySlug(resolvedParams.slug)
   return {
     title: `${post.title} - SetTravel UK Blog`,
-    description: post.excerpt,
+    description: post.description,
   }
 }
 
@@ -32,7 +33,7 @@ export default async function BlogPost({ params }) {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
           <div className="flex items-center text-primary-100">
             <span>
-              {new Date(post.date).toLocaleDateString('en-GB', {
+              {new Date(post.publishedAt).toLocaleDateString('en-GB', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
@@ -41,7 +42,7 @@ export default async function BlogPost({ params }) {
             {post.author && (
               <>
                 <span className="mx-2">•</span>
-                <span>By {post.author}</span>
+                <span>By {post.author.name}</span>
               </>
             )}
           </div>
@@ -51,15 +52,14 @@ export default async function BlogPost({ params }) {
       {/* Blog Content */}
       <article className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {post.image && (
+          {post.coverImage && (
             <div className="mb-8 rounded-xl overflow-hidden">
-              <img src={post.image} alt={post.title} className="w-full h-auto" />
+              <img src={post.coverImage} alt={post.title} className="w-full h-auto" />
             </div>
           )}
-          <div
-            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-a:text-primary-600 prose-strong:text-gray-900"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-a:text-primary-600 prose-strong:text-gray-900">
+            <DocumentRenderer document={post.content} />
+          </div>
         </div>
       </article>
 

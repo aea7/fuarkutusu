@@ -6,8 +6,8 @@ export const metadata = {
   description: 'Travel tips, guides, and stories from across the UK',
 }
 
-export default function Blog() {
-  const posts = getAllPosts()
+export default async function Blog() {
+  const posts = await getAllPosts()
 
   return (
     <div>
@@ -37,15 +37,15 @@ export default function Blog() {
                   className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   <div className="h-48 bg-gray-200 flex items-center justify-center">
-                    {post.image ? (
-                      <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                    {post.coverImage ? (
+                      <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-gray-400">Image placeholder</span>
                     )}
                   </div>
                   <div className="p-6">
                     <div className="text-sm text-primary-600 mb-2">
-                      {new Date(post.date).toLocaleDateString('en-GB', {
+                      {new Date(post.publishedAt).toLocaleDateString('en-GB', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'
@@ -54,7 +54,7 @@ export default function Blog() {
                     <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                       {post.title}
                     </h2>
-                    <p className="text-gray-600 line-clamp-3">{post.excerpt}</p>
+                    <p className="text-gray-600 line-clamp-3">{post.description}</p>
                   </div>
                 </Link>
               ))}
