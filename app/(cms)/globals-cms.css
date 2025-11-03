@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure CMS has clean styling without main site interference */
+body#outstatic {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
