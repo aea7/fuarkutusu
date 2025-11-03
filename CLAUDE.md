@@ -1,1 +1,2 @@
 - you don't need to do yarn dev, it's always running on 3000
+- don't commit or push to github, don't do anything git related.
