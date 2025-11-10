@@ -1,16 +1,48 @@
 @import "tailwindcss";
 
+/* Font Declarations */
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/Axiforma-ExtraBold.woff2') format('woff2'),
+       url('/fonts/Axiforma-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Campton';
+  src: url('/fonts/Campton-Medium.woff2') format('woff2'),
+       url('/fonts/Campton-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --color-primary-50: #ebf5ff;
-  --color-primary-100: #d6ebff;
-  --color-primary-200: #b3d9ff;
-  --color-primary-300: #80c1ff;
-  --color-primary-400: #4da3ff;
-  --color-primary-500: #3182CE;
-  --color-primary-600: #2c74ba;
-  --color-primary-700: #2563a3;
-  --color-primary-800: #1e4f82;
-  --color-primary-900: #16406b;
+  /* Darker Blue - Primary Colors */
+  --color-primary-50: #e6eef5;
+  --color-primary-100: #ccdde8;
+  --color-primary-200: #99bbd1;
+  --color-primary-300: #6698ba;
+  --color-primary-400: #3376a3;
+  --color-primary-500: #1a4d7a;
+  --color-primary-600: #164162;
+  --color-primary-700: #123449;
+  --color-primary-800: #0e2831;
+  --color-primary-900: #091b1f;
+
+  /* Orange - Accent Colors */
+  --color-accent-50: #fef5ee;
+  --color-accent-100: #fde8d7;
+  --color-accent-200: #fbcdae;
+  --color-accent-300: #f8ab7b;
+  --color-accent-400: #f47d45;
+  --color-accent-500: #ee7d21;
+  --color-accent-600: #df5c17;
+  --color-accent-700: #b94515;
+  --color-accent-800: #933819;
+  --color-accent-900: #763117;
 }
 
 :root {
