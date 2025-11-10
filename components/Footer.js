@@ -61,8 +61,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">{t('footer.contact', language)}</h4>
             <ul className="space-y-2 text-sm">
-              <li>{t('footer.email', language)}: fuar@fuarkutusu.com</li>
-              <li>{t('footer.phone', language)}: +90 533 525 64 16</li>
+              <li>{t('footer.email', language)}: <a href="mailto:fuar@fuarkutusu.com" className="hover:text-accent-400 transition-colors">fuar@fuarkutusu.com</a></li>
+              <li>{t('footer.phone', language)}: <a href="tel:+905335256416" className="hover:text-accent-400 transition-colors">+90 533 525 64 16</a></li>
               <li className="flex space-x-4 mt-4">
                 <a href="https://www.instagram.com/fuarkutusu" target="_blank" rel="noopener noreferrer" className="hover:text-accent-400 transition-colors">
                   <span className="sr-only">Instagram</span>

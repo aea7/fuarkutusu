@@ -115,7 +115,9 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.emailLabel', language)}</h3>
-                    <p className="text-gray-600">{t('contact.info.email', language)}</p>
+                    <a href={`mailto:${t('contact.info.email', language)}`} className="text-gray-600 hover:text-accent-600 transition-colors">
+                      {t('contact.info.email', language)}
+                    </a>
                   </div>
                 </div>
 
@@ -129,7 +131,9 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.phoneLabel', language)}</h3>
-                    <p className="text-gray-600">{t('contact.info.phone', language)}</p>
+                    <a href={`tel:${t('contact.info.phone', language)}`} className="text-gray-600 hover:text-accent-600 transition-colors">
+                      {t('contact.info.phone', language)}
+                    </a>
                   </div>
                 </div>
 
