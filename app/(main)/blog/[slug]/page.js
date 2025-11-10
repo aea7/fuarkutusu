@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   const resolvedParams = await params
   const post = await getPostBySlug(resolvedParams.slug)
   return {
-    title: `${post.title} - SetTravel UK Blog`,
+    title: `${post.title} - Fuar Kutusu Blog`,
     description: post.description,
   }
 }

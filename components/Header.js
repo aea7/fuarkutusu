@@ -1,23 +1,42 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { t } from '@/translations'
 import LanguageSwitch from './LanguageSwitch'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const { language } = useLanguage()
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className={`shadow-sm sticky top-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white' : 'bg-white bg-opacity-50 backdrop-blur-sm'
+    }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className={`flex justify-between items-center transition-all duration-300 ${
+          scrolled ? 'h-20' : 'h-40'
+        }`}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1 font-heading">
-            <span className="text-2xl font-bold text-primary-700">GTS</span>
-            <span className="text-2xl font-bold text-accent-500">TURİZM</span>
+          <Link href="/" className="flex items-center">
+            <img
+              src="/images/logo.png"
+              alt="Fuar Kutusu"
+              className={`w-auto transition-all duration-300 ${
+                scrolled ? 'h-14' : 'h-32'
+              }`}
+            />
           </Link>
 
           {/* Navigation Links - Desktop */}

@@ -37,7 +37,7 @@ export const translations = {
         title: 'What Our Travelers Say',
         subtitle: 'Real experiences from real travelers',
         client1: 'Sarah Johnson',
-        quote1: 'SetTravel made our UK trip absolutely unforgettable. Every detail was perfectly planned!',
+        quote1: 'Fuar Kutusu made our UK trip absolutely unforgettable. Every detail was perfectly planned!',
         client2: 'Michael Chen',
         quote2: 'Professional, knowledgeable, and always responsive. Highly recommend their services.',
         client3: 'Emma Williams',
@@ -103,10 +103,10 @@ export const translations = {
 
     // About
     about: {
-      title: 'About SetTravel UK',
+      title: 'About Fuar Kutusu',
       subtitle: 'Passionate about creating unforgettable travel experiences across the United Kingdom',
       ourStory: 'Our Story',
-      storyPara1: 'Founded in 2014, SetTravel UK began with a simple mission: to help travelers discover the hidden gems and iconic landmarks of the United Kingdom in the most authentic way possible.',
+      storyPara1: 'Founded in 2014, Fuar Kutusu began with a simple mission: to help businesses discover the best trade shows and exhibitions around the world.',
       storyPara2: 'What started as a small team of passionate travel enthusiasts has grown into a trusted partner for thousands of travelers seeking memorable experiences across England, Scotland, Wales, and Northern Ireland.',
       storyPara3: 'Today, we pride ourselves on our local expertise, personalized service, and commitment to sustainable tourism that benefits both travelers and local communities.',
       ourValues: 'Our Values',
@@ -176,8 +176,8 @@ export const translations = {
         submit: 'Send Message',
       },
       info: {
-        email: 'info@settraveluk.com',
-        phone: '+44 20 1234 5678',
+        email: 'fuar@fuarkutusu.com',
+        phone: '+90 533 525 64 16',
         hours: 'Office Hours',
         monday: 'Monday - Friday: 9:00 AM - 6:00 PM',
         saturday: 'Saturday: 10:00 AM - 4:00 PM',
@@ -194,7 +194,7 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: 'Your trusted travel companion for unforgettable journeys across the UK.',
+      tagline: 'Your trusted partner for international trade shows and exhibitions. Based in Turkey, serving the world.',
       quickLinks: 'Quick Links',
       aboutUs: 'About Us',
       services: 'Services',
@@ -247,7 +247,7 @@ export const translations = {
         title: 'Gezginlerimiz Ne Diyor',
         subtitle: 'Gerçek gezginlerden gerçek deneyimler',
         client1: 'Sarah Johnson',
-        quote1: 'SetTravel İngiltere gezimizi kesinlikle unutulmaz kıldı. Her detay mükemmel planlandı!',
+        quote1: 'Fuar Kutusu İngiltere gezimizi kesinlikle unutulmaz kıldı. Her detay mükemmel planlandı!',
         client2: 'Michael Chen',
         quote2: 'Profesyonel, bilgili ve her zaman yanıt veren. Hizmetlerini şiddetle tavsiye ederim.',
         client3: 'Emma Williams',
@@ -313,10 +313,10 @@ export const translations = {
 
     // About
     about: {
-      title: 'SetTravel UK Hakkında',
+      title: 'Fuar Kutusu Hakkında',
       subtitle: 'Birleşik Krallık genelinde unutulmaz seyahat deneyimleri yaratma tutkusuyla',
       ourStory: 'Hikayemiz',
-      storyPara1: '2014 yılında kurulan SetTravel UK, basit bir misyonla başladı: Gezginlerin Birleşik Krallık\'ın gizli cevherlerini ve ikonik simge yapılarını en otantik şekilde keşfetmelerine yardımcı olmak.',
+      storyPara1: '2014 yılında kurulan Fuar Kutusu, basit bir misyonla başladı: İşletmelerin dünyanın dört bir yanındaki en iyi fuarları ve sergileri keşfetmelerine yardımcı olmak.',
       storyPara2: 'Tutkulu seyahat meraklılarından oluşan küçük bir ekip olarak başlayan yolculuğumuz, İngiltere, İskoçya, Galler ve Kuzey İrlanda genelinde unutulmaz deneyimler arayan binlerce gezginin güvenilir ortağına dönüştü.',
       storyPara3: 'Bugün, yerel uzmanlığımız, kişiselleştirilmiş hizmetimiz ve hem gezginlere hem de yerel topluluklara fayda sağlayan sürdürülebilir turizm taahhüdümüzle gurur duyuyoruz.',
       ourValues: 'Değerlerimiz',
@@ -386,8 +386,8 @@ export const translations = {
         submit: 'Mesaj Gönder',
       },
       info: {
-        email: 'info@settraveluk.com',
-        phone: '+44 20 1234 5678',
+        email: 'fuar@fuarkutusu.com',
+        phone: '+90 533 525 64 16',
         hours: 'Çalışma Saatleri',
         monday: 'Pazartesi - Cuma: 09:00 - 18:00',
         saturday: 'Cumartesi: 10:00 - 16:00',
@@ -404,7 +404,7 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: 'İngiltere\'de unutulmaz yolculuklar için güvenilir seyahat arkadaşınız.',
+      tagline: 'Uluslararası fuarlar ve sergiler için güvenilir ortağınız. Türkiye merkezli, dünyaya hizmet veren.',
       quickLinks: 'Hızlı Bağlantılar',
       aboutUs: 'Hakkımızda',
       services: 'Hizmetler',

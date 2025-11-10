@@ -1,0 +1,30 @@
+title: gamescom
+slug: gamescom-cologne
+subtitle: The World's Largest Trade Fair and Event for Interactive Games and Entertainment
+startDate: 2026-08-26
+endDate: 2026-08-30
+frequency: yearly
+sector: Information Technologies, Telecommunications, Consumer Electronics
+venue: Koelnmesse
+venueAddress: Messeplatz 1, 50679 Cologne
+city: Cologne
+country: Germany
+locationLatitude: '50.948718'
+locationLongitude: '6.978847'
+organizerName: Koelnmesse GmbH
+organizerAddress: Messeplatz 1
+organizerCity: Cologne
+organizerCountry: Germany
+organizerWebsite: https://www.koelnmesse.com
+logo: /images/fuar/logos/gamescom-cologne-logo.jpg
+coverImage: /images/fuar/covers/gamescom-cologne-cover.jpg
+website: https://www.gamescom.global/en
+instagram: https://www.instagram.com/gamescom
+tags:
+  - gaming
+  - entertainment
+  - software
+  - computer-hardware
+  - technology
+  - consumer-electronics
+featured: false

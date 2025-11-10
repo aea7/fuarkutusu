@@ -79,8 +79,19 @@ export default config({
           defaultValue: false,
         }),
         content: fields.document({
-          label: '📝 MAIN CONTENT / ANA İÇERİK',
-          description: '⚠️ IMPORTANT: This is the main description editor. Scroll down or check below for the rich text editor / ÖNEMLİ: Bu ana açıklama editörüdür. Zengin metin editörü için aşağıya kaydırın',
+          label: '📝 CONTENT (English) / İÇERİK (İngilizce)',
+          description: 'Main description in English / Ana açıklama İngilizce',
+          formatting: true,
+          dividers: true,
+          links: true,
+          images: {
+            directory: 'public/images/fuar',
+            publicPath: '/images/fuar/',
+          },
+        }),
+        contentTr: fields.document({
+          label: '📝 CONTENT (Turkish) / İÇERİK (Türkçe)',
+          description: 'Main description in Turkish / Ana açıklama Türkçe',
           formatting: true,
           dividers: true,
           links: true,
@@ -178,6 +189,11 @@ export default config({
         website: fields.text({
           label: '🌐 Trade Show Website / Fuar Web Sitesi',
           description: 'Official event website / Resmi etkinlik web sitesi',
+          defaultValue: '',
+        }),
+        instagram: fields.text({
+          label: '📱 Instagram / Instagram',
+          description: 'Instagram profile URL / Instagram profil URL',
           defaultValue: '',
         }),
         tags: fields.array(

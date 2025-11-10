@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 
 export const metadata = {
-  title: 'Blog - SetTravel UK',
+  title: 'Blog - Fuar Kutusu',
   description: 'Travel tips, guides, and stories from across the UK',
 }
 

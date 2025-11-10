@@ -3,7 +3,7 @@ import FuarList from '@/components/FuarList'
 import FuarPageHero from '@/components/FuarPageHero'
 
 export const metadata = {
-  title: 'Trade Shows & Exhibitions - SetTravel UK',
+  title: 'Trade Shows & Exhibitions - Fuar Kutusu',
   description: 'Discover international trade shows, exhibitions, and industry events',
 }
 

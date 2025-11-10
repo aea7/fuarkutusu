@@ -1,3 +1,10 @@
 - you don't need to do yarn dev, it's always running on 3000
 - don't commit or push to github, don't do anything git related.
 - don't do any git changes at all
+- Don't do draft status, status at all, always publish it
+- the fuar endpoint is /fuar and folder also fuar
+- add turkish and English for each fair (fuar)
+- Description should be EN and TR as well for fuar (fair content)
+- When adding a fuar, add TR and EN content
+- find an image from the internet about the fuar (fair)
+- try to get less than 350 KB of images

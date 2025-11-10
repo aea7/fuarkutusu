@@ -1,0 +1,29 @@
+title: bauma
+slug: bauma
+subtitle: International Construction Machinery, Construction Material Machinery, Mining Machinery and Construction Vehicles Fair
+startDate: 2028-04-03
+endDate: 2028-04-09
+frequency: other
+sector: Construction
+venue: Messe München
+venueAddress: Messegelände / Am Messesee 2, 81823 Munich
+city: Munich
+country: Germany
+locationLatitude: '48.134537'
+locationLongitude: '11.697825'
+organizerName: Messe München GmbH
+organizerAddress: Messegelände
+organizerCity: Munich
+organizerCountry: Germany
+organizerWebsite: https://www.messe-muenchen.de
+logo: /images/fuar/logos/bauma-logo.svg
+coverImage: /images/fuar/covers/bauma-cover.jpg
+website: https://www.bauma.de
+instagram: https://www.instagram.com/bauma.official
+tags:
+  - construction
+  - machinery
+  - mining
+  - building-materials
+  - construction-vehicles
+featured: true

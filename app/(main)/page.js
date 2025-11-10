@@ -256,7 +256,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "SetTravel UK made our family trip absolutely unforgettable. The attention to detail and local insights were exceptional!"
+                "Fuar Kutusu made our family trip absolutely unforgettable. The attention to detail and local insights were exceptional!"
               </p>
             </div>
 

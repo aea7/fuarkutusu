@@ -1,0 +1,32 @@
+title: Fruit Logistica
+slug: fruit-logistica-berlin
+subtitle: International Fresh Fruit and Vegetable Fair
+startDate: 2026-02-04
+endDate: 2026-02-06
+frequency: yearly
+sector: Food & Beverage
+venue: Berlin Messegelande (ExpoCenter City)
+venueAddress: Messedamm 22, 14055 Berlin
+city: Berlin
+country: Germany
+locationLatitude: '52.501664'
+locationLongitude: '13.275850'
+organizerName: Messe Berlin GmbH
+organizerAddress: Messedamm 22
+organizerCity: Berlin
+organizerCountry: Germany
+organizerWebsite: https://www.messe-berlin.de
+logo: /images/fuar/logos/fruit-logistica-berlin-logo.png
+coverImage: /images/fuar/covers/fruit-logistica-berlin-cover.jpg
+website: https://www.fruitlogistica.com/en/
+instagram: https://www.instagram.com/fruitlogistica
+tags:
+  - food
+  - beverage
+  - logistics
+  - fruits
+  - vegetables
+  - fresh-produce
+  - packaging
+  - agricultural
+featured: false
