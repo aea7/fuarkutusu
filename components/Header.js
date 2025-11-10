@@ -26,7 +26,7 @@ export default function Header() {
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex justify-between items-center transition-all duration-300 ${
-          scrolled ? 'h-20' : 'h-40'
+          scrolled ? 'h-16 md:h-20' : 'h-28 md:h-40'
         }`}>
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -34,7 +34,7 @@ export default function Header() {
               src="/images/logo.png"
               alt="Fuar Kutusu"
               className={`w-auto transition-all duration-300 ${
-                scrolled ? 'h-14' : 'h-32'
+                scrolled ? 'h-10 md:h-14' : 'h-22 md:h-32'
               }`}
             />
           </Link>

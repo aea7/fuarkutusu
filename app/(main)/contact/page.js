@@ -1,14 +1,19 @@
 'use client'
 
+import { useLanguage } from '@/contexts/LanguageContext'
+import { t } from '@/translations'
+
 export default function Contact() {
+  const { language } = useLanguage()
+
   return (
     <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('contact.pageTitle', language)}</h1>
           <p className="text-xl text-primary-100 max-w-3xl">
-            We'd love to hear from you. Let's start planning your next adventure!
+            {t('contact.subtitle', language)}
           </p>
         </div>
       </section>
@@ -19,11 +24,11 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.form.sendMessage', language)}</h2>
               <form className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name
+                    {t('contact.form.name', language)}
                   </label>
                   <input
                     type="text"
@@ -33,13 +38,13 @@ export default function Contact() {
                     style={{ outlineColor: '#ee7d21' }}
                     onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(238, 125, 33, 0.2)'}
                     onBlur={(e) => e.target.style.boxShadow = 'none'}
-                    placeholder="John Smith"
+                    placeholder={t('contact.form.namePlaceholder', language)}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
+                    {t('contact.form.email', language)}
                   </label>
                   <input
                     type="email"
@@ -49,13 +54,13 @@ export default function Contact() {
                     style={{ outlineColor: '#ee7d21' }}
                     onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(238, 125, 33, 0.2)'}
                     onBlur={(e) => e.target.style.boxShadow = 'none'}
-                    placeholder="john@example.com"
+                    placeholder={t('contact.form.emailPlaceholder', language)}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
+                    {t('contact.form.phone', language)}
                   </label>
                   <input
                     type="tel"
@@ -65,13 +70,13 @@ export default function Contact() {
                     style={{ outlineColor: '#ee7d21' }}
                     onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(238, 125, 33, 0.2)'}
                     onBlur={(e) => e.target.style.boxShadow = 'none'}
-                    placeholder="+44 123 456 7890"
+                    placeholder={t('contact.form.phonePlaceholder', language)}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
+                    {t('contact.form.message', language)}
                   </label>
                   <textarea
                     id="message"
@@ -81,7 +86,7 @@ export default function Contact() {
                     style={{ outlineColor: '#ee7d21' }}
                     onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(238, 125, 33, 0.2)'}
                     onBlur={(e) => e.target.style.boxShadow = 'none'}
-                    placeholder="Tell us about your travel plans..."
+                    placeholder={t('contact.form.messagePlaceholder', language)}
                   />
                 </div>
 
@@ -90,14 +95,14 @@ export default function Contact() {
                   className="w-full text-white px-8 py-4 rounded-lg font-semibold transition-all hover:brightness-90 cursor-pointer"
                   style={{ backgroundColor: '#ee7d21' }}
                 >
-                  Send Message
+                  {t('contact.form.submit', language)}
                 </button>
               </form>
             </div>
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.info.title', language)}</h2>
 
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -109,8 +114,8 @@ export default function Contact() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">fuar@fuarkutusu.com</p>
+                    <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.emailLabel', language)}</h3>
+                    <p className="text-gray-600">{t('contact.info.email', language)}</p>
                   </div>
                 </div>
 
@@ -123,9 +128,8 @@ export default function Contact() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+90 533 525 64 16</p>
-                    <p className="text-gray-600">Mon-Fri: 9am - 6pm GMT</p>
+                    <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.phoneLabel', language)}</h3>
+                    <p className="text-gray-600">{t('contact.info.phone', language)}</p>
                   </div>
                 </div>
 
@@ -139,9 +143,9 @@ export default function Contact() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Office</h3>
-                    <p className="text-gray-600">Merkez Mah. Abide-i Hürriyet Cad. No:211</p>
-                    <p className="text-gray-600">Bolkan Center A Blok D:67 İstanbul/Şişli</p>
+                    <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.officeLabel', language)}</h3>
+                    <p className="text-gray-600">{t('contact.info.address1', language)}</p>
+                    <p className="text-gray-600">{t('contact.info.address2', language)}</p>
                   </div>
                 </div>
 
@@ -163,11 +167,11 @@ export default function Contact() {
               </div>
 
               <div className="mt-8 p-6 rounded-lg" style={{ backgroundColor: 'rgba(238, 125, 33, 0.05)' }}>
-                <h3 className="text-lg font-semibold mb-3" style={{ color: '#ee7d21' }}>Office Hours</h3>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: '#ee7d21' }}>{t('contact.info.hours', language)}</h3>
                 <div className="space-y-2 text-gray-600">
-                  <p><span className="font-medium">Monday - Friday:</span> 9:00 AM - 6:00 PM</p>
-                  <p><span className="font-medium">Saturday:</span> 10:00 AM - 4:00 PM</p>
-                  <p><span className="font-medium">Sunday:</span> Closed</p>
+                  <p>{t('contact.info.monday', language)}</p>
+                  <p>{t('contact.info.saturday', language)}</p>
+                  <p>{t('contact.info.sunday', language)}</p>
                 </div>
               </div>
             </div>
