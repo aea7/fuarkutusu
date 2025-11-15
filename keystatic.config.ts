@@ -129,19 +129,10 @@ export default config({
           label: '🌆 City / Şehir',
           validation: { isRequired: true },
         }),
-        country: fields.select({
+        country: fields.text({
           label: '🌍 Country / Ülke',
-          description: 'Select the country where the event takes place / Etkinliğin gerçekleşeceği ülkeyi seçin',
-          options: [
-            { label: 'Germany / Almanya', value: 'Germany' },
-            { label: 'Netherlands / Hollanda', value: 'Netherlands' },
-            { label: 'Austria / Avusturya', value: 'Austria' },
-            { label: 'Switzerland / İsviçre', value: 'Switzerland' },
-            { label: 'China / Çin', value: 'China' },
-            { label: 'UAE / BAE', value: 'UAE' },
-            { label: 'Belgium / Belçika', value: 'Belgium' },
-          ],
-          defaultValue: 'Germany',
+          description: 'Country where the event takes place / Etkinliğin gerçekleşeceği ülke',
+          validation: { isRequired: true },
         }),
         locationLatitude: fields.text({
           label: '📍 Latitude / Enlem',

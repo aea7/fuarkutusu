@@ -84,6 +84,8 @@ export const translations = {
       visitOrganizerWebsite: 'Visit Organizer Website →',
       locationMap: 'Location Map',
       tags: 'Tags',
+      instagram: 'Instagram',
+      followOnInstagram: 'Follow on Instagram →',
       filter: {
         country: 'Country',
         date: 'Date',
@@ -303,6 +305,8 @@ export const translations = {
       visitOrganizerWebsite: 'Organizatör Web Sitesini Ziyaret Et →',
       locationMap: 'Konum Haritası',
       tags: 'Etiketler',
+      instagram: 'Instagram',
+      followOnInstagram: 'Instagram\'da Takip Et →',
       filter: {
         country: 'Ülke',
         date: 'Tarih',
